@@ -26,7 +26,7 @@ import kalaniCommerce from '@/public/port-images/KalaniShop.png'
 
 export const project1 = {
     imageSrc: pocketChef,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: 'PocketChef is an innovative web application designed to revolutionize the way you approach cooking. Built with a modern tech stack including TypeScript, React.js, Next.js, TailwindCSS, CSS, and OpenAI, PocketChef provides a seamless and interactive user experience. Simply enter the ingredients you have or wish to use, optionally select a diet type and meal type, and PocketChef will generate a variety of recipes complete with images. The app leverages the power of OpenAI to create unique and delicious recipes tailored to your preferences. Additionally, PocketChef showcases advanced parallax effects and GSAP animations, making the user interface visually appealing and engaging. Whether you are a home cook or a culinary enthusiast, PocketChef is your ultimate kitchen companion, helping you make the most out of your ingredients and discover new culinary delights.',
     title: 'PocketChef',
     tools: [
         {name: 'Javascript', image: javascript},
@@ -43,7 +43,7 @@ export const project1 = {
 
 export const project2 = {
     imageSrc: kalaniCommerce,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    description: 'This e-commerce web application offers a comprehensive shopping experience. Users can effortlessly log in using GoogleOauth, ensuring a secure and seamless authentication process. The app features robust cart and checkout functionality, enabling users to manage their shopping with ease. Additionally, it includes a dynamic dashboard for users to track their orders and manage their account details. The integration with Stripe ensures smooth and secure payment transactions, enhancing the overall user experience. This e-commerce solution is designed to provide a modern, efficient, and user-friendly platform for both buyers and sellers.',
     title: 'Kalani-Commerce',
     tools: [
         {name: 'Javascript', image: javascript},

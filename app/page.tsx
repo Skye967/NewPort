@@ -103,7 +103,7 @@ const HomePage: React.FC = () => {
       <div id="contact" className={styles.contactWrapper}>
         <ContactSection />
       </div>
-      {/* <NavigationBar /> */}
+      <NavigationBar />
     </div>
   );
 };
