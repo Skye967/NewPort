@@ -1,0 +1,155 @@
+.projectCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  border: 2px solid gray;
+  border-radius: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px 0px;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.leftColumn {
+  padding: 20px;
+}
+
+.rightColumn {
+  display: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  color: #333;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.tools {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+}
+
+.item {
+    position: absolute;
+  background: linear-gradient(to bottom, #dedcdc, #262626);
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  font-size: 7px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.itemBorder {
+    position: relative;
+  background: #4f4e4e;
+  height: 65px;
+  width: 65px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+ .itemBorder {
+    transition: transform 0.7s ease;
+}
+
+ .itemBorder:hover {
+    transform: rotate(60deg);
+}
+
+.toolImage{
+    height: 75%;
+    width: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.github {
+    width: 100px;
+    height: 30px;
+    color: white;
+    margin: 5px;
+    text-align: center;
+    background-color: red;
+    animation-name: bounce;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    transition: transform 0.5s ease;
+  }
+
+  .website {
+    width: 100px;
+    height: 30px;
+    color: white;
+    margin: 5px;
+    text-align: center;
+    background-color: orange;
+    animation-name: bounce;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-delay: 5s;
+    transition: transform 0.5s ease;
+  }
+
+  .github:hover, .website:hover{
+    transform: scale(1.5);
+  }
+  
+  @keyframes bounce {
+    0% {
+        transform: scale(1);
+      }
+      5% {
+        transform: scale(1.5); /* Adjust the scale factor as needed */
+      }
+      10% {
+        transform: scale(1);
+      }
+      15% {
+        transform: scale(1);
+      }
+      20% {
+        transform: scale(1.5); /* Adjust the scale factor as needed */
+      }
+      25% {
+        transform: scale(1);
+      }
+  }
+  

@@ -1,0 +1,28 @@
+.slideshow {
+  position: fixed;
+  width: 50%;
+  height: 50%; /* Full viewport height */
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slideshowImage {
+  border-radius: 5%;
+  width: 300px;
+  height: auto;
+  position: absolute;
+  background-size: contain;
+  background-position: center;
+  transition:
+    opacity 3s ease-in-out,
+    transform 9s ease-in;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1.3);
+}

@@ -1,0 +1,21 @@
+.bouncingBalls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .bouncingBalls div {
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: bounce 6s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-200%); }
+    60% { transform: translateY(-100%); }
+  }

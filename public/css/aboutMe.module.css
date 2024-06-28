@@ -1,0 +1,286 @@
+
+.intro{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent ;
+  height: 800px;
+  overflow: hidden;
+  clip-path: polygon(100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+  margin-bottom: 20px;
+}
+
+.particleB{
+  position: absolute;
+  object-fit: cover;
+  height: 800px;
+  z-index: -1;
+}
+
+.shadow {
+    position: relative;
+    box-shadow: 0px 10px 20px 30px white;
+    z-index: 2;
+}
+
+.shadowUp {
+  position: relative;
+  box-shadow: 0px -0px 20px 30px white;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.aboutMeWrapper {
+  position: relative;
+  background: url('../port-images/bioBackground.webp') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.aboutMe {
+  background: rgba(255, 255, 255, 0.8); /* Add a white background with some transparency if needed */
+  padding: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.hexagonPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.aboutMeHeader {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: 1px 1px 2px black;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.subHeader {
+  position: relative;
+  text-align: center;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.introduction {
+  position: relative;
+  text-align: center;
+  color: gray;
+  margin-bottom: 20px;
+  background: transparent;
+  z-index: 1;
+}
+
+.introduction span {
+  color: red;
+}
+
+.biographyContainer {
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+
+.biography {
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px 6px;
+  color: white;
+  box-sizing: border-box;
+  margin-top: 10px;
+  line-height: 34px;
+  text-align: left;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.bioRed{
+  background-color: rgba(206, 2, 2, 0.85);
+  padding: 4px 8px;
+}
+
+.toolsHeader {
+  text-align: center;
+  color: gray;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+  grid-gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.toolItem {
+  width: 75px;
+  height: 85px; /* Adjusted for the hexagon height */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  transition: transform 0.7s ease;
+  margin-bottom: -20px;
+  border: 1px solid gray;
+}
+
+.toolItem:nth-child(5),
+.toolItem:nth-child(13),
+.toolItem:nth-child(21),
+.toolItem:nth-child(29) {
+  margin-left: 42px;
+}
+
+.toolItem:nth-child(2),
+.toolItem:nth-child(3),
+.toolItem:nth-child(4),
+.toolItem:nth-child(10),
+.toolItem:nth-child(11),
+.toolItem:nth-child(12),
+.toolItem:nth-child(18),
+.toolItem:nth-child(19),
+.toolItem:nth-child(20),
+.toolItem:nth-child(26),
+.toolItem:nth-child(27),
+.toolItem:nth-child(28) {
+  margin-left: -42px;
+}
+
+.toolItem:hover {
+  transform: rotate(60deg); /* 1/6 turn */
+}
+
+.toolImage {
+  border: 1px solid gray;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transform: rotate(60deg);
+}
+
+.toolImageContainer {
+  border: 1px solid gray;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transform: rotate(-120deg);
+}
+
+.tool {
+  background: linear-gradient(to bottom, white, darkgray);
+  width: 100%;
+  height: 100%;
+  padding: 27%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 4;
+  transform: rotate(60deg);
+}
+
+.tool p {
+  font-size: 10px;
+}
+
+
+.arrowSection {
+  position: relative;
+  height: 65vh;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowContent {
+  display: relative;
+  clip-path: polygon(50% 15%, 100% 1%, 100% 85%, 50% 100%, 0 85%, 0 0);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 50;
+}
+
+.arrowContent img {
+  width: 100%;
+  border-radius: 5%;
+  z-index: 50;
+}
+
+.projectsSection {
+  margin: 30px 0px;
+  padding: 50px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.projectsHeader {
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: -1.5px -1.5px 2px #000, 1.5px -1.5px 2px #000, -1.5px 1.5px 1px #000, 1.5px 1.5px 1px #000;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.contactWrapper {
+  position: relative;
+  background: url('../port-images/chefWork.jpg') no-repeat center center;
+  background-size: cover;
+  clip-path: polygon(50% 10%, 100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
