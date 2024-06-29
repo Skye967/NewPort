@@ -1,0 +1,27 @@
+.container {
+  display: relative;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+
+}
+
+.wrapper{
+    display: absolute;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 3px 3px black;
+  color: white;
+}
+
+.subHeader {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  color: red;
+}

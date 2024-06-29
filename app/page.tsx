@@ -7,12 +7,12 @@ import dynamic from "next/dynamic";
 import desktop from '@/public/port-images/desktop.png'
 import { project1, project2 } from "./constants/projects";
 import Navbar from "./componenets/Navbar";
-import ParticlesBackground from "./componenets/ParticlesBackground";
 import ProjectCard from "./componenets/ProjectCard";
 import ContactSection from "./componenets/ContactSection";
 import NavigationBar from "./componenets/SideNavBar";
 import BouncingBalls from "./componenets/BouncingBalls";
 import myself from "@/public/port-images/myself.jpeg"
+import TypedText from "./componenets/TypedText";
 
 const HomePage: React.FC = () => {
   
@@ -27,6 +27,7 @@ const HomePage: React.FC = () => {
     <div className="relative w-full">
       <Navbar />
       <div id="home" className={`${styles.intro}`}>
+        <TypedText/>
         <Image
           src={myself}
           alt="Picture of the author"
