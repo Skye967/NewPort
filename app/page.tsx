@@ -36,6 +36,9 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="relative w-full">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <Navbar />
       <div id="home" className={`${styles.intro}`}>
         <TypedText />
