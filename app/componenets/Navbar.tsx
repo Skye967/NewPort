@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './css/Navbar.module.css';
 import { Arizonia } from "next/font/google";
+import logo from '@/public/port-images/sgLogo.jpg'
+import Image from 'next/image';
 
 const arizonia = Arizonia({ subsets: ["latin"], weight: ['400'] });
 
@@ -15,9 +17,14 @@ const Navbar: React.FC = () => {
     return (
         <nav className={`${styles.nav} bg-black text-white py-4`}>
             <div className="container mx-auto flex justify-between items-center">
-                <div className={`${styles.name} ${arizonia.className}`}>
+                <Image
+                    src={logo}
+                    alt="Picture of the author"
+                    className={styles.logo}
+                />
+                {/* <div className={`${styles.name} ${arizonia.className}`}>
                     Skye Grossman
-                </div>
+                </div> */}
                 <div className={styles.linksContainer}>
                     <div className={`flex flex-wrap ${styles.menuLinks}`}>
                         <Link className={`${styles.customLink}`} href="#home" prefetch={true}>

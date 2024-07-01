@@ -1,18 +1,17 @@
-
-.intro{
+.intro {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: transparent ;
+  background: transparent;
   height: 800px;
   overflow: hidden;
   clip-path: polygon(100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
   margin-bottom: 20px;
 }
 
-.particleB{
+.particleB {
   position: absolute;
   object-fit: cover;
   height: 800px;
@@ -20,9 +19,9 @@
 }
 
 .shadow {
-    position: relative;
-    box-shadow: 0px 10px 20px 30px white;
-    z-index: 2;
+  position: relative;
+  box-shadow: 0px 10px 20px 30px white;
+  z-index: 2;
 }
 
 .shadowUp {
@@ -34,13 +33,19 @@
 
 .aboutMeWrapper {
   position: relative;
-  background: url('../port-images/bioBackground.webp') no-repeat center center fixed;
+  background: url('../port-images/bioBackground.webp') no-repeat center center
+    fixed;
   background-size: cover;
   overflow: hidden;
 }
 
 .aboutMe {
-  background: rgba(255, 255, 255, 0.8); /* Add a white background with some transparency if needed */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Add a white background with some transparency if needed */
   padding: 50px;
   position: relative;
   z-index: 1;
@@ -59,10 +64,10 @@
 
 .aboutMeHeader {
   text-align: center;
-  color: white;
+  color: #dbdbdb;
   font-weight: bold;
   font-size: 36px;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 3px 3px 3px black;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
@@ -79,10 +84,23 @@
   z-index: 1;
 }
 
+.flexWrap{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+}
+
+
+@media screen and (max-width: 900px) {
+  .flexWrap{
+    flex-wrap: wrap;
+  }
+}
+
 .introduction {
   position: relative;
   text-align: center;
-  color: gray;
+  color: #4d4d4d;
   margin-bottom: 20px;
   background: transparent;
   z-index: 1;
@@ -97,7 +115,6 @@
   z-index: 1;
 }
 
-
 .biography {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -111,14 +128,19 @@
   box-decoration-break: clone;
 }
 
-.bioRed{
+.tab {
+  margin-right: 40px;
+}
+
+.bioRed {
   background-color: rgba(206, 2, 2, 0.85);
   padding: 4px 8px;
 }
 
 .toolsHeader {
   text-align: center;
-  color: gray;
+  color: black;
+  font-weight: bold;
   margin-bottom: 20px;
   z-index: 1;
 }
@@ -216,7 +238,6 @@
   font-size: 10px;
 }
 
-
 .arrowSection {
   position: relative;
   height: 65vh;
@@ -262,7 +283,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .projectsHeader {
@@ -270,7 +290,11 @@
   color: white;
   font-weight: bold;
   font-size: 36px;
-  text-shadow: -1.5px -1.5px 2px #000, 1.5px -1.5px 2px #000, -1.5px 1.5px 1px #000, 1.5px 1.5px 1px #000;
+  text-shadow:
+    -1.5px -1.5px 2px #000,
+    1.5px -1.5px 2px #000,
+    -1.5px 1.5px 1px #000,
+    1.5px 1.5px 1px #000;
   margin-bottom: 40px;
   position: relative;
   z-index: 1;

@@ -33,7 +33,6 @@ const TypedTextComponent: React.FC = () => {
             } else {
                 return
             }
-            console.log(localTyping)
         }, 100)
     }
 
@@ -41,7 +40,7 @@ const TypedTextComponent: React.FC = () => {
         HeaderTyper()
         setTimeout(() => {
             SubHeaderTyper()
-        }, 5000)
+        }, 3000)
     }, [])
 
 

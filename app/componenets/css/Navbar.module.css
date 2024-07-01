@@ -7,6 +7,17 @@
   align-items: center;
   padding: 10px 20px;
   background-color: black;
+  height: 75px;
+}
+
+.logo{
+  height:50px;
+  width: auto;
+  transition: all 2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.2);
 }
 
 .customLink {
