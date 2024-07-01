@@ -32,10 +32,12 @@
 }
 
 .aboutMeWrapper {
-  position: relative;
-  background: url('../port-images/bioBackground.webp') no-repeat center center
-    fixed;
+  background-image: url('../port-images/bioBackground.webp');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin:  border-box;
+  background-attachment: fixed;
   overflow: hidden;
 }
 
