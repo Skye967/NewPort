@@ -64,10 +64,12 @@
 
 .aboutMeHeader {
   text-align: center;
-  color: #dbdbdb;
+  color: white;
   font-weight: bold;
-  font-size: 36px;
-  text-shadow: 3px 3px 3px black;
+  font-size: 50px;
+  text-shadow: 3px 3px 1px black;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
@@ -84,15 +86,14 @@
   z-index: 1;
 }
 
-.flexWrap{
+.flexWrap {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
 }
 
-
 @media screen and (max-width: 900px) {
-  .flexWrap{
+  .flexWrap {
     flex-wrap: wrap;
   }
 }
@@ -294,24 +295,20 @@
   left: 50;
   text-align: left;
   color: white;
-  font-weight: bold;
+  font-weight: 1px;
   font-size: 60px;
-  text-shadow:
-    -1.5px -1.5px 2px #000,
-    1.5px -1.5px 2px #000,
-    -1.5px 1.5px 1px #000,
-    1.5px 1.5px 1px #000;
+  text-shadow: 3px 3px 1px black;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
   margin-bottom: 40px;
   z-index: 100;
 }
 
 @media screen and (max-width: 450px) {
-  .projectsHeader{
+  .projectsHeader {
     font-size: 40px;
   }
 }
-
-
 
 .contactWrapper {
   position: relative;

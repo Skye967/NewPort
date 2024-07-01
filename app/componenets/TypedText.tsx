@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './css/TypedText.module.css';
+import { Caveat } from 'next/font/google'
+
+const caveat = Caveat({
+    weight: '400',
+    subsets: ['latin'],
+})
 
 const TypedTextComponent: React.FC = () => {
     const [headerText, setHeaderText] = useState('');
@@ -46,7 +52,7 @@ const TypedTextComponent: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.wrapper}>
+            <div className={`${styles.wrapper} ${caveat.className}`}>
                 <h1 className={styles.header}>{headerText}</h1>
                 <h2 className={styles.subHeader}>{subHeaderText}</h2>
             </div>

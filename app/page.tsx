@@ -13,6 +13,17 @@ import NavigationBar from "./componenets/SideNavBar";
 import BouncingBalls from "./componenets/BouncingBalls";
 import myself from "@/public/port-images/myself.jpeg"
 import TypedText from "./componenets/TypedText";
+import { Yatra_One, Carter_One } from 'next/font/google'
+
+const yatraOne = Yatra_One({
+    weight: '400',
+    subsets: ['latin'],
+})
+
+const carterOne = Carter_One({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 const HomePage: React.FC = () => {
 
@@ -41,7 +52,7 @@ const HomePage: React.FC = () => {
       <section id="aboutMe" className={styles.aboutMeWrapper}>
         <div className={styles.aboutMe}>
           <div>
-            <h1 className={styles.aboutMeHeader}>About Me</h1>
+            <h1 className={`${styles.aboutMeHeader} ${yatraOne.className}`}>About Me</h1>
             <h2 className={styles.subHeader}>Who I am and what I do</h2>
           </div>
           <div className={`${styles.flexWrap} `} >
@@ -84,7 +95,7 @@ const HomePage: React.FC = () => {
           <video className={styles.videoBackground} controls={false} autoPlay={true} loop={true} muted={true} preload="none" playsInline>
             <source src={"/video/milkyway.mp4"} type="video/mp4" />
           </video>
-          <h2 className={styles.projectsHeader}>My Recent Work</h2>
+          <h2 className={`${styles.projectsHeader} ${carterOne.className}`}>My Recent Work</h2>
           <Image
             src={desktop}
             alt="Description of image"
