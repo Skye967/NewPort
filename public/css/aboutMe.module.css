@@ -87,7 +87,7 @@
 .flexWrap{
   display: flex;
   flex-direction: row-reverse;
-  justify-content: left;
+  justify-content: center;
 }
 
 
@@ -269,7 +269,10 @@
 }
 
 .arrowContent img {
-  width: 100%;
+  position: absolute;
+  top: 130px;
+  left: 50;
+  width: 70%;
   border-radius: 5%;
   z-index: 50;
 }
@@ -286,19 +289,29 @@
 }
 
 .projectsHeader {
+  position: absolute;
+  top: 70px;
+  left: 50;
   text-align: left;
   color: white;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 60px;
   text-shadow:
     -1.5px -1.5px 2px #000,
     1.5px -1.5px 2px #000,
     -1.5px 1.5px 1px #000,
     1.5px 1.5px 1px #000;
   margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
+  z-index: 100;
 }
+
+@media screen and (max-width: 450px) {
+  .projectsHeader{
+    font-size: 40px;
+  }
+}
+
+
 
 .contactWrapper {
   position: relative;
