@@ -22,7 +22,7 @@ const NavigationBar: React.FC = () => {
             >
                 <FaGithub />
             </Link>
-            <Link href="#contact" className={styles.navLink}>
+            <Link href="mailto:skye.grossman@gmail.com" className={styles.navLink}>
                 <FaEnvelope />
             </Link>
         </div>
