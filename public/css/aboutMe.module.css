@@ -36,9 +36,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-origin:  border-box;
+  background-origin: border-box;
   background-attachment: fixed;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 400px) {
+  .aboutMeWrapper {
+    background-image: url('../port-images/bioBackground.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
 }
 
 .aboutMe {
