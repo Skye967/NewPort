@@ -39,7 +39,8 @@ const Navbar: React.FC = () => {
                         <Link className={`${styles.customLink}`} href="#contact" prefetch={true}>
                             Contact
                         </Link>
-                        <Link className={`${styles.customLink}`} href="https://docs.google.com/document/d/1eho-4QWcmMxeYAx798CfIZ9w4sB-DpGcB8Eq3TiEij8/edit?usp=sharing" prefetch={true}>
+                        <Link className={`${styles.customLink}`} href="https://docs.google.com/document/d/1eho-4QWcmMxeYAx798CfIZ9w4sB-DpGcB8Eq3TiEij8/edit?usp=sharing" target="_blank"
+                rel="noopener noreferrer" prefetch={true}>
                             Resume
                         </Link>
                     </div>
