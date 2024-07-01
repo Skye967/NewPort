@@ -44,13 +44,12 @@
 @media only screen and (max-width: 400px) {
   .aboutMeWrapper {
     background-image: url('../port-images/bioBackground.webp');
-    background-size: 180vh;
-    background-repeat: no-repeat;
+    background-size: 100vh;
+    background-repeat: repeat;
     background-position-x: center;
     background-position-y: center;
     background-origin: border-box;
-    background-attachment: fixed;
-    overflow: hidden;
+    background-attachment: scroll;
   }
 }
 
