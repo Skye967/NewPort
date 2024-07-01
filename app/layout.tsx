@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Skye Grossman's work portfolio",
 };
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 export default function RootLayout({
   children,
 }: Readonly<{
