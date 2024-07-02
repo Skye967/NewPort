@@ -14,10 +14,11 @@ import BouncingBalls from "./componenets/BouncingBalls";
 import myself from "@/public/port-images/myself.jpeg"
 import TypedText from "./componenets/TypedText";
 import { Yatra_One, Carter_One } from 'next/font/google'
+import hexagon from "@/public/port-images/bioBackground.webp"
 
 const yatraOne = Yatra_One({
-    weight: '400',
-    subsets: ['latin'],
+  weight: '400',
+  subsets: ['latin'],
 })
 
 const carterOne = Carter_One({
@@ -35,24 +36,33 @@ const HomePage: React.FC = () => {
   )
 
   return (
-    <div className="relative w-full">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+    <div className="relative w-full overflow-hidden">
       <Navbar />
-      <div id="home" className={`${styles.intro}`}>
-        <TypedText />
-        <Image
-          src={myself}
-          alt="Picture of the author"
-          className={styles.particleB}
-        />
-        <Suspense fallback={<BouncingBalls />}>
-          <ParticlesBackground />
-        </Suspense>
+      <div className=" bg-white">
+        <div id="home" className={`${styles.intro}`}>
+          <TypedText />
+          <Image
+            src={myself}
+            alt="Picture of the author"
+            className={styles.particleB}
+          />
+          <Suspense fallback={<BouncingBalls />}>
+            <ParticlesBackground />
+          </Suspense>
+        </div>
       </div>
       <div className={`${styles.shadow}`}></div>
       <section id="aboutMe" className={styles.aboutMeWrapper}>
+        <div className={styles.hexagonPattern}>
+          {/* <Image
+            src={hexagon}
+            alt="Picture of the author"
+            layout="fill"
+            objectFit="cover"
+            sizes="100vw"
+          /> */}
+          hello
+          
         <div className={styles.aboutMe}>
           <div>
             <h1 className={`${styles.aboutMeHeader} ${yatraOne.className}`}>About Me</h1>
@@ -91,6 +101,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+        </div>
       </section>
       <div className={`${styles.shadowUp}`}></div>
       <section className={styles.arrowSection}>
@@ -123,8 +134,10 @@ const HomePage: React.FC = () => {
           websiteLink={project2.websiteLink}
         />
       </section>
-      <div id="contact" className={styles.contactWrapper}>
-        <ContactSection />
+      <div className={styles.contactShadow}>
+        <div id="contact" className={styles.contactWrapper}>
+          <ContactSection />
+        </div>
       </div>
       <NavigationBar />
     </div>
