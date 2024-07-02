@@ -16,7 +16,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    height: 30vh; /* For mobile */
+    height: 25vh; /* For mobile */
   }
 }
 
