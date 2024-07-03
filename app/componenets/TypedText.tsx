@@ -25,7 +25,7 @@ const TypedTextComponent: React.FC = () => {
             } else {
                 return
             }
-        }, 100)
+        }, 70)
     }
 
     const SubHeaderTyper = () => {
@@ -39,14 +39,14 @@ const TypedTextComponent: React.FC = () => {
             } else {
                 return
             }
-        }, 100)
+        }, 70)
     }
 
     useEffect(() => {
         HeaderTyper()
         setTimeout(() => {
             SubHeaderTyper()
-        }, 3000)
+        }, 2500)
     }, [])
 
 

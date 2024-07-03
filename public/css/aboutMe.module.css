@@ -70,9 +70,11 @@
 }
 
 .subHeader {
+  font-size: 20px;
   position: relative;
   text-align: center;
   background-color: red;
+  width: 75%;
   color: white;
   padding: 10px;
   margin-bottom: 20px;
@@ -98,6 +100,8 @@
   margin-bottom: 20px;
   background: transparent;
   z-index: 1;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .introduction span {
@@ -122,21 +126,30 @@
   box-decoration-break: clone;
 }
 
-.tab {
-  margin-right: 40px;
-}
-
 .bioRed {
+  font-size: 15px;
   background-color: rgba(206, 2, 2, 0.85);
-  padding: 4px 8px;
+  padding: 4px 10px;
+  color: white;
+  box-sizing: border-box;
+  line-height: 34px;
+  text-align: left;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .toolsHeader {
   text-align: center;
-  color: black;
+  color: #3883fc;
   font-weight: bold;
+  font-size: 40px;
+  text-shadow: 1px 1px 1px black;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
   margin-bottom: 20px;
+  position: relative;
   z-index: 1;
+  background: transparent;
 }
 
 .toolsGrid {
