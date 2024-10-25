@@ -1,5 +1,5 @@
-
-    name: Amplify Security
+# .github/workflows/amplify.yml
+name: Amplify Security
     on:
         pull_request: {}
         workflow_dispatch: {}
