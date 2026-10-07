@@ -72,6 +72,9 @@ one. Don't add a dependency for something a few lines would do.
 Prettier owns formatting, including Tailwind class order. Run `bun run format` before
 committing.
 
+Run `bun run lint` before committing; warnings fail it. CI runs it and `bun run build`
+on every PR.
+
 ### Comments
 
 A comment is what the code cannot say. Four things earn one:
