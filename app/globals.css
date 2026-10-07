@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --spacing-header: 3.5rem;
+}
+
 html {
-  /* Keeps anchor targets clear of the sticky header; must stay at least the
-     h-14 on the header in components/nav.tsx. */
-  scroll-padding-top: 4rem;
+  scroll-padding-top: calc(var(--spacing-header) + 0.5rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {
