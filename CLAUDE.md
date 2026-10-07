@@ -9,11 +9,11 @@ commit messages, and PR descriptions are held to the same bar as the site.
 
 Planning and process live **outside** the repo, in the parent directory:
 
-| File | What |
-|---|---|
-| `../DEVOPS.md` | The work process, end to end. **Follow it for every task.** |
-| `../TASKS.md` | Build plan — task order, branch names, and the current base branch |
-| `../DECISIONS.md` | Why the project is built this way |
+| File              | What                                                               |
+| ----------------- | ------------------------------------------------------------------ |
+| `../DEVOPS.md`    | The work process, end to end. **Follow it for every task.**        |
+| `../TASKS.md`     | Build plan — task order, branch names, and the current base branch |
+| `../DECISIONS.md` | Why the project is built this way                                  |
 
 ## Status
 
@@ -68,6 +68,9 @@ it.
 
 Match surrounding code. Don't introduce a second way to do something that already has
 one. Don't add a dependency for something a few lines would do.
+
+Prettier owns formatting, including Tailwind class order. Run `bun run format` before
+committing.
 
 ### Comments
 
