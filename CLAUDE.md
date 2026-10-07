@@ -23,6 +23,8 @@ base. Everything below describes the target, not what is on `main` today.
 
 ## Stack
 
+@AGENTS.md
+
 Next.js 16 (App Router), TypeScript, Tailwind 4. Deployed on Vercel.
 
 **Package manager is `bun`.** Never run `npm`/`pnpm`/`yarn` here — it creates a
