@@ -5,7 +5,7 @@ export type Site = {
   title: string;
   nav: { id: SectionId; label: string }[];
   email: string;
-  links: { github: string; linkedin: string };
+  links: { label: string; href: string }[];
 };
 
 export const site: Site = {
@@ -17,8 +17,8 @@ export const site: Site = {
     { id: "contact", label: "Contact" },
   ],
   email: "skye.grossman@gmail.com",
-  links: {
-    github: "https://github.com/Skye967",
-    linkedin: "https://www.linkedin.com/in/skye-grossman",
-  },
+  links: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/skye-grossman" },
+    { label: "GitHub", href: "https://github.com/Skye967" },
+  ],
 };
