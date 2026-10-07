@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+html {
+  /* Keeps anchor targets clear of the sticky header; must stay at least the
+     h-14 on the header in components/nav.tsx. */
+  scroll-padding-top: 4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
