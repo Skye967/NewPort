@@ -2,6 +2,15 @@
 
 @theme {
   --spacing-header: 3.5rem;
+
+  /* Zero length: fill "both" holds opacity 0 until animation-delay, then shows
+     the character. */
+  --animate-type-in: type-in 0s both;
+  @keyframes type-in {
+    from {
+      opacity: 0;
+    }
+  }
 }
 
 html {

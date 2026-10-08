@@ -1,10 +1,41 @@
+import { Caveat } from "next/font/google";
 import Image from "next/image";
 import { HeroParticles } from "@/components/hero-particles";
 import { site } from "@/content/site";
 
+// Not preloaded: a preload is fetched ahead of the hero photo, which is the
+// LCP element. The cost is a swap from the fallback font when Caveat arrives,
+// which can rewrap the title.
+const caveat = Caveat({ subsets: ["latin"], weight: "700", preload: false });
+
+const charMs = 50;
+const lineGapMs = 300;
+
+// The visible glyphs are ::before content in an aria-hidden subtree, so the
+// sr-only copy is the only text: what's read, indexed and found. Accepted
+// costs: the visible title can't be selected or machine-translated, and
+// find-in-page highlights nothing visible.
+function Typed({ text, delay = 0 }: { text: string; delay?: number }) {
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
+        {[...text].map((char, i) => (
+          <span
+            key={i}
+            data-char={char}
+            className="before:content-[attr(data-char)] motion-safe:not-print:animate-type-in"
+            style={{ animationDelay: `${delay + i * charMs}ms` }}
+          />
+        ))}
+      </span>
+    </>
+  );
+}
+
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-var(--spacing-header))] items-end overflow-hidden">
+    <section className="relative isolate min-h-[calc(100svh-var(--spacing-header))] overflow-hidden [clip-path:polygon(100%_0,100%_85%,50%_100%,0_85%,0_0)]">
       <Image
         src={site.hero.photo.src}
         alt={site.hero.photo.alt}
@@ -16,16 +47,18 @@ export function Hero() {
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <HeroParticles />
       </div>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-black via-black/50 to-transparent" />
-      <div className="mx-auto w-full max-w-5xl px-4 pb-16">
-        <h1 className="text-4xl font-bold sm:text-6xl">{site.name}</h1>
-        <p className="mt-2 text-lg text-white/80 sm:text-xl">{site.title}</p>
-        <a
-          href={`#${site.hero.cta.target}`}
-          className="mt-6 inline-block rounded-md bg-red-600 px-5 py-3 font-semibold hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          {site.hero.cta.label}
-        </a>
+      <div
+        className={`${caveat.className} pointer-events-none mx-auto max-w-5xl px-4 pt-12 sm:pt-16`}
+      >
+        <h1 className="text-3xl text-shadow-[3px_3px_0_black] sm:text-5xl">
+          <Typed text={site.hero.greeting} />
+        </h1>
+        <p className="mt-2 text-xl text-red-500 text-shadow-[2px_2px_0_black] sm:text-3xl">
+          <Typed
+            text={site.title}
+            delay={[...site.hero.greeting].length * charMs + lineGapMs}
+          />
+        </p>
       </div>
     </section>
   );
