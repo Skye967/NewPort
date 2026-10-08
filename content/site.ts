@@ -7,8 +7,8 @@ export type Site = {
   name: string;
   title: string;
   hero: {
+    greeting: string;
     photo: { src: StaticImageData; alt: string };
-    cta: { label: string; target: SectionId };
   };
   nav: { id: SectionId; label: string }[];
   email: string;
@@ -17,13 +17,13 @@ export type Site = {
 
 export const site: Site = {
   name: "Skye Grossman",
-  title: "Full-stack developer",
+  title: "Full Stack Software Developer",
   hero: {
+    greeting: "Hey there, I'm Skye Grossman",
     photo: {
       src: heroPhoto,
       alt: "Skye Grossman seated in an armchair by tall windows",
     },
-    cta: { label: "See my work", target: "projects" },
   },
   nav: [
     { id: "about", label: "About" },
