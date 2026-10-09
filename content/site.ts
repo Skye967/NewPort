@@ -17,6 +17,13 @@ export type Site = {
     closing: string;
     skillsHeading: string;
   };
+  projects: {
+    heading: string;
+    nextStepLabel: string;
+    stackLabel: string;
+    liveLabel: string;
+    repoLabel: string;
+  };
   nav: { id: SectionId; label: string }[];
   email: string;
   links: { label: string; href: string }[];
@@ -39,6 +46,13 @@ export const site: Site = {
     closing:
       "If you have any questions or just want to chat, feel free to get in touch. Mahalo!",
     skillsHeading: "Skills",
+  },
+  projects: {
+    heading: "Projects",
+    nextStepLabel: "What I'd do next:",
+    stackLabel: "Stack",
+    liveLabel: "Live site",
+    repoLabel: "Source code",
   },
   nav: [
     { id: "about", label: "About" },
