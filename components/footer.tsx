@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 export function Footer() {
   return (
     <footer className="border-t border-white/10">
-      <ul className="mx-auto flex max-w-5xl flex-wrap gap-x-6 gap-y-2 px-4 py-6 text-sm">
+      <ul className="mx-auto flex max-w-5xl flex-wrap gap-x-6 gap-y-2 px-page py-6 text-sm">
         {site.links.map(({ label, href }) => (
           <li key={href}>
             <a

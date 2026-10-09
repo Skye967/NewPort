@@ -31,8 +31,12 @@ function SkillGrid() {
   // the first starts one half-column in, so auto-placement wraps 3-4-3-4-3
   // with the short rows offset by half a tile. Tiles are 76x88 (regular
   // hexagon) so a 60° turn maps each one onto itself.
+  // The grid is 310px wide, so with About's px-page padding below sm it only
+  // fits between the page edge and SideTab from 358px. Below 360px it is
+  // zoomed to 85%, which fits down to about 312px; the accepted cost is
+  // 8.5px labels there.
   return (
-    <ul className="grid grid-cols-[repeat(8,37px)] justify-center gap-x-0.5 pb-5 [&>li:nth-child(7n+1)]:col-start-2">
+    <ul className="grid grid-cols-[repeat(8,37px)] justify-center gap-x-0.5 pb-5 max-[360px]:zoom-85 [&>li:nth-child(7n+1)]:col-start-2">
       {skills.map(({ name, icon }) => (
         // The li is the hover target and never moves; only the hexagon inside
         // turns, so the pointer can't drop off a corner mid-turn and flicker.
@@ -79,9 +83,12 @@ export function About() {
   const [first, last] = site.name.split(" ");
 
   return (
+    // Below sm, px-page's asymmetric padding centres the column 1rem left of
+    // the viewport's centre; centred on the viewport, SkillGrid would only
+    // clear SideTab from 390px.
     <AboutSection
       id={id}
-      className={`${yatraOne.variable} group/about relative bg-white/80 px-4 pt-16 pb-12 sm:px-12`}
+      className={`${yatraOne.variable} group/about relative bg-white/80 px-page pt-16 pb-12 sm:px-side-tab-gutter`}
     >
       {/* A flat fill of the image's average colour stands in until load.
           Unpinned, it is drawn at least 896px wide, half the source, for
