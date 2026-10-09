@@ -12,7 +12,7 @@ export function Nav() {
   return (
     // z-20 so the open menu paints over SideTab, which is z-10.
     <header className="sticky top-0 z-20 h-header border-b border-white/10 bg-black/90 backdrop-blur">
-      <div className="mx-auto flex h-full max-w-5xl items-center justify-between gap-4 px-page">
+      <div className="flex h-full items-center justify-between gap-4 px-4">
         <a href="#top">
           {/* Not preloaded: it would be fetched ahead of the hero photo, the
               LCP element. */}
