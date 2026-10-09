@@ -1,1 +1,4 @@
-export const bio: string[] = ["TODO: bio"];
+export const bio: string[] = [
+  "I'm Skye Grossman, a full-stack developer from Maui. I grew up on the island's countryside, skipping school when the surf was too good to pass up and taking apart anything I could get my hands on. That curiosity turned into a culinary degree and years as a chef, from dive bars to fine dining, where you learn to work fast under pressure and own whatever leaves the kitchen. Towing came next, repossessions and off-road recoveries, then construction. Somewhere in there I started writing code, and it stuck. Coding Dojo's 16-week bootcamp made it a career.",
+  "Today I build web apps end to end: UI, API, data layer, and the services behind them, in TypeScript, Go, and Python. I use AI coding tools every day, and I think the hard part of that is no longer writing code but trusting it. So every change gets a real review before it ships, and nothing merges that I can't explain or defend. That's how I ship full features fast and keep them secure. Off the clock I'm usually learning about system architecture or building agents with LangChain.",
+];

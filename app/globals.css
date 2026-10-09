@@ -2,6 +2,8 @@
 
 @theme {
   --spacing-header: 3.5rem;
+  --spacing-hero: calc(100svh - var(--spacing-header));
+  --spacing-hero-notch: calc(var(--spacing-hero) * 0.15);
 
   /* Zero length: fill "both" holds opacity 0 until animation-delay, then shows
      the character. */
