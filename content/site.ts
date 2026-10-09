@@ -10,6 +10,13 @@ export type Site = {
     greeting: string;
     photo: { src: StaticImageData; alt: string };
   };
+  about: {
+    heading: string;
+    tagline: string;
+    greeting: string;
+    closing: string;
+    skillsHeading: string;
+  };
   nav: { id: SectionId; label: string }[];
   email: string;
   links: { label: string; href: string }[];
@@ -24,6 +31,14 @@ export const site: Site = {
       src: heroPhoto,
       alt: "Skye Grossman seated in an armchair by tall windows",
     },
+  },
+  about: {
+    heading: "About Me",
+    tagline: "Who I am and what I do",
+    greeting: "Hello, I'm",
+    closing:
+      "If you have any questions or just want to chat, feel free to get in touch. Mahalo!",
+    skillsHeading: "Skills",
   },
   nav: [
     { id: "about", label: "About" },

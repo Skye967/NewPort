@@ -35,7 +35,7 @@ function Typed({ text, delay = 0 }: { text: string; delay?: number }) {
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[calc(100svh-var(--spacing-header))] overflow-hidden [clip-path:polygon(100%_0,100%_85%,50%_100%,0_85%,0_0)]">
+    <section className="relative isolate min-h-hero overflow-hidden [clip-path:polygon(100%_0,100%_calc(100%-var(--spacing-hero-notch)),50%_100%,0_calc(100%-var(--spacing-hero-notch)),0_0)]">
       <Image
         src={site.hero.photo.src}
         alt={site.hero.photo.alt}
@@ -47,8 +47,10 @@ export function Hero() {
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <HeroParticles />
       </div>
+      {/* The bottom padding only matters when large text makes the title
+          outgrow the hero: it keeps the text above the V crop. */}
       <div
-        className={`${caveat.className} pointer-events-none mx-auto max-w-5xl px-4 pt-12 sm:pt-16`}
+        className={`${caveat.className} pointer-events-none mx-auto max-w-5xl px-4 pt-12 pb-hero-notch sm:pt-16`}
       >
         <h1 className="text-3xl text-shadow-[3px_3px_0_black] sm:text-5xl">
           <Typed text={site.hero.greeting} />
