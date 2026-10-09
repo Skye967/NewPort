@@ -50,7 +50,7 @@ export function Hero() {
       {/* The bottom padding only matters when large text makes the title
           outgrow the hero: it keeps the text above the V crop. */}
       <div
-        className={`${caveat.className} pointer-events-none mx-auto max-w-5xl px-4 pt-12 pb-hero-notch sm:pt-16`}
+        className={`${caveat.className} pointer-events-none mx-auto max-w-5xl px-page pt-12 pb-hero-notch sm:pt-16`}
       >
         <h1 className="text-3xl text-shadow-[3px_3px_0_black] sm:text-5xl">
           <Typed text={site.hero.greeting} />

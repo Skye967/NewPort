@@ -4,6 +4,8 @@
   --spacing-header: 3.5rem;
   --spacing-hero: calc(100svh - var(--spacing-header));
   --spacing-hero-notch: calc(var(--spacing-hero) * 0.15);
+  --spacing-side-tab: 2.5rem;
+  --spacing-side-tab-gutter: calc(var(--spacing-side-tab) + 0.5rem);
 
   /* Zero length: fill "both" holds opacity 0 until animation-delay, then shows
      the character. */
@@ -12,6 +14,18 @@
     from {
       opacity: 0;
     }
+  }
+}
+
+/* SideTab is fixed over the right edge. The max-w-5xl column clears it once
+   its margin plus 1rem covers --spacing-side-tab-gutter: 68rem, plus room for a
+   classic scrollbar, which media width includes. Screen only: SideTab is
+   print:hidden. The header uses it too, so its right edge lines up with the
+   sections that use it. Projects' screenshot sizes is derived from it. */
+@utility px-page {
+  padding-inline: 1rem;
+  @media screen and (width < 70rem) {
+    padding-right: var(--spacing-side-tab-gutter);
   }
 }
 

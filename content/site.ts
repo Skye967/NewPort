@@ -2,6 +2,7 @@ import type { StaticImageData } from "next/image";
 import heroPhoto from "@/public/hero.webp";
 
 export type SectionId = "about" | "projects" | "contact";
+export type SocialId = "linkedin" | "github";
 
 export type Site = {
   name: string;
@@ -39,8 +40,13 @@ export type Site = {
     errorMessage: string;
   };
   nav: { id: SectionId; label: string }[];
+  navLabel: string;
+  resume: { label: string; href: string; newTabHint: string };
+  menuLabel: string;
+  socialLabel: string;
   email: string;
-  links: { label: string; href: string }[];
+  emailLabel: string;
+  links: { id: SocialId; label: string; href: string }[];
 };
 
 export const site: Site = {
@@ -86,9 +92,22 @@ export const site: Site = {
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ],
+  navLabel: "Primary",
+  resume: {
+    label: "Resume",
+    href: "/skye-grossman-resume.pdf",
+    newTabHint: "(opens in a new tab)",
+  },
+  menuLabel: "Menu",
+  socialLabel: "Social",
   email: "skye.grossman@gmail.com",
+  emailLabel: "Email",
   links: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/skye-grossman" },
-    { label: "GitHub", href: "https://github.com/Skye967" },
+    {
+      id: "linkedin",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/skye-grossman",
+    },
+    { id: "github", label: "GitHub", href: "https://github.com/Skye967" },
   ],
 };

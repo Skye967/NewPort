@@ -11,7 +11,7 @@ export function Projects() {
   const id: SectionId = "projects";
 
   return (
-    <section id={id} className="mx-auto w-full max-w-5xl px-4 py-16">
+    <section id={id} className="mx-auto w-full max-w-5xl px-page py-16">
       <h2 className="flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
         {site.projects.heading}
       </h2>
@@ -81,15 +81,15 @@ export function Projects() {
                 )}
               </ul>
             </div>
-            {/* sizes follows from the section's max-w-5xl and px-4 and the
-                article's gap-4 and sm:grid-cols-2: 488px columns once the
-                section is at full width. */}
+            {/* sizes follows from the section's max-w-5xl and px-page, whose
+                right padding is --spacing-side-tab-gutter below 70rem, and
+                the article's gap-4 and sm:grid-cols-2. */}
             {screenshots.map(({ src, alt }) => (
               <Image
                 key={src.src}
                 src={src}
                 alt={alt}
-                sizes="(min-width: 1024px) 488px, (min-width: 640px) calc(50vw - 24px), calc(100vw - 32px)"
+                sizes="(min-width: 70rem) 488px, (min-width: 1024px) 472px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 64px)"
                 className="rounded-lg border border-white/10"
               />
             ))}

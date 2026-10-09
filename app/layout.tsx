@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
+import { SideTab } from "@/components/side-tab";
 import "./globals.css";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -9,6 +10,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Nav />
         {children}
         <Footer />
+        <SideTab />
       </body>
     </html>
   );

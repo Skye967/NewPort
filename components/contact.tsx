@@ -23,7 +23,7 @@ export function Contact() {
       {/* py-24 keeps the content clear of the 3rem notches in the clip-path
           above, which cut into the middle of the top edge and the corners of
           the bottom one. */}
-      <div className="mx-auto max-w-5xl px-4 py-24">
+      <div className="mx-auto max-w-5xl px-page py-24">
         <h2 className="flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
           {site.contact.heading}
         </h2>
