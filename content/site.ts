@@ -24,6 +24,20 @@ export type Site = {
     liveLabel: string;
     repoLabel: string;
   };
+  contact: {
+    heading: string;
+    nameLabel: string;
+    emailLabel: string;
+    messageLabel: string;
+    // Enforced by the form's maxLength and again by sendMessage, which
+    // anyone can call with a hand-built request.
+    maxLength: { name: number; email: number; message: number };
+    submitLabel: string;
+    sendingLabel: string;
+    successMessage: string;
+    invalidMessage: string;
+    errorMessage: string;
+  };
   nav: { id: SectionId; label: string }[];
   email: string;
   links: { label: string; href: string }[];
@@ -53,6 +67,19 @@ export const site: Site = {
     stackLabel: "Stack",
     liveLabel: "Live site",
     repoLabel: "Source code",
+  },
+  contact: {
+    heading: "Contact",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    maxLength: { name: 100, email: 254, message: 5000 },
+    submitLabel: "Send message",
+    sendingLabel: "Sending…",
+    successMessage: "Thanks — your message is on its way.",
+    invalidMessage: "Please fill in your name, email and message.",
+    errorMessage:
+      "Your message may not have been sent. You can email me directly instead:",
   },
   nav: [
     { id: "about", label: "About" },
