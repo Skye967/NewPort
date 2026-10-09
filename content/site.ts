@@ -7,6 +7,7 @@ export type SocialId = "linkedin" | "github";
 export type Site = {
   name: string;
   title: string;
+  description: string;
   hero: {
     greeting: string;
     photo: { src: StaticImageData; alt: string };
@@ -52,10 +53,14 @@ export type Site = {
 export const site: Site = {
   name: "Skye Grossman",
   title: "Full Stack Software Developer",
+  // Quotes the second paragraph of bio in content/bio.ts; change both together.
+  description:
+    "Today I build web apps end to end: UI, API, data layer, and the services behind them, in TypeScript, Go, and Python.",
   hero: {
     greeting: "Hey there, I'm Skye Grossman",
     photo: {
       src: heroPhoto,
+      // app/opengraph-image.alt.txt repeats this; change both together.
       alt: "Skye Grossman seated in an armchair by tall windows",
     },
   },
