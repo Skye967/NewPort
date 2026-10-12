@@ -5,7 +5,7 @@ import { sendMessage, type ContactState, type Fields } from "@/app/actions";
 import type { Site } from "@/content/site";
 
 const field =
-  "rounded-md border border-white/15 bg-white/5 px-3 py-2 text-white focus:border-[red] focus:outline-hidden read-only:opacity-60";
+  "rounded-md border border-white/15 bg-white/5 px-3 py-2 text-white focus:border-[red] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white read-only:opacity-60";
 const label = "flex flex-col gap-1.5 text-sm text-white/70";
 
 // Next throws here, rather than in sendMessage, when the action can't run at
@@ -93,7 +93,7 @@ export function ContactForm({
       <button
         type="submit"
         aria-disabled={pending}
-        className="self-start rounded-md bg-[red] px-5 py-2 font-semibold text-white not-aria-disabled:hover:bg-red-700 aria-disabled:opacity-60"
+        className="self-start rounded-md bg-red-600 px-5 py-2 font-semibold text-white not-aria-disabled:hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-disabled:opacity-60"
       >
         {pending ? copy.sendingLabel : copy.submitLabel}
       </button>

@@ -129,8 +129,8 @@ export function About() {
           <div className="flex-1">
             <p className="mb-5 text-center text-xl font-bold text-[#4d4d4d]">
               {site.about.greeting}{" "}
-              <span className="text-[red]">{first[0]}</span>
-              {first.slice(1)} <span className="text-[red]">{last}</span>
+              <span className="text-red-700">{first[0]}</span>
+              {first.slice(1)} <span className="text-red-700">{last}</span>
             </p>
             {bio.map((paragraph, i) => (
               <p key={i} className={bioLine}>
