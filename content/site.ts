@@ -55,7 +55,7 @@ export const site: Site = {
   title: "Full Stack Software Developer",
   // Quotes the second paragraph of bio in content/bio.ts; change both together.
   description:
-    "Today I build web apps end to end: UI, API, data layer, and the services behind them, in TypeScript, Go, and Python.",
+    "Today I enjoy building web apps end to end: UI, API, data layer, and the services behind them, in TypeScript, Go, and Python.",
   hero: {
     greeting: "Hey there, I'm Skye Grossman",
     photo: {
