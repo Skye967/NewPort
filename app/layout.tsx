@@ -1,30 +1,25 @@
-
 import type { Metadata } from "next";
+import { Footer } from "@/components/footer";
+import { Nav } from "@/components/nav";
+import { SideTab } from "@/components/side-tab";
+import { site } from "@/content/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Skye Grossman",
-  description: "Skye Grossman's work portfolio",
-  
+  title: `${site.name} — ${site.title}`,
+  description: site.description,
+  openGraph: { type: "website", siteName: site.name },
 };
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
-
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="scroll-smooth w-full">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-        <body className="scroll-smooth w-full">
-          {children}
-        </body>
+    <html lang="en" className="scheme-dark">
+      <body className="flex min-h-dvh flex-col bg-black text-white">
+        <Nav />
+        {children}
+        <Footer />
+        <SideTab />
+      </body>
     </html>
   );
 }

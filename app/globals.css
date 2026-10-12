@@ -1,33 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@theme {
+  --spacing-header: 3.5rem;
+  --spacing-hero: calc(100svh - var(--spacing-header));
+  --spacing-hero-notch: calc(var(--spacing-hero) * 0.15);
+  --spacing-side-tab: 2.5rem;
+  --spacing-side-tab-gutter: calc(var(--spacing-side-tab) + 0.5rem);
+
+  /* Zero length: fill "both" holds opacity 0 until animation-delay, then shows
+     the character. */
+  --animate-type-in: type-in 0s both;
+  @keyframes type-in {
+    from {
+      opacity: 0;
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* SideTab is fixed over the right edge. The max-w-5xl column clears it once
+   its margin plus 1rem covers --spacing-side-tab-gutter: 68rem, plus room for a
+   classic scrollbar, which media width includes. Screen only: SideTab is
+   print:hidden. Projects' screenshot sizes is derived from it. */
+@utility px-page {
+  padding-inline: 1rem;
+  @media screen and (width < 70rem) {
+    padding-right: var(--spacing-side-tab-gutter);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+html {
+  scroll-padding-top: calc(var(--spacing-header) + 0.5rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
-} */
+}
