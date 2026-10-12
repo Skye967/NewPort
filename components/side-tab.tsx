@@ -1,15 +1,6 @@
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMail,
-  type Icon,
-} from "@tabler/icons-react";
-import { site, type SocialId } from "@/content/site";
-
-const icons: Record<SocialId, Icon> = {
-  linkedin: IconBrandLinkedin,
-  github: IconBrandGithub,
-};
+import { IconMail } from "@tabler/icons-react";
+import { socialIcons } from "@/components/social-icons";
+import { site } from "@/content/site";
 
 // block: a scale transform doesn't apply to an inline box.
 const link =
@@ -27,10 +18,15 @@ export function SideTab() {
     >
       <ul className="flex flex-col items-center gap-5">
         {site.links.map(({ id, label, href }) => {
-          const Icon = icons[id];
+          const Icon = socialIcons[id];
           return (
             <li key={id}>
-              <a href={href} aria-label={label} className={link}>
+              <a
+                href={href}
+                target="_blank"
+                aria-label={`${label} ${site.newTabHint}`}
+                className={link}
+              >
                 <Icon aria-hidden="true" size={24} />
               </a>
             </li>
