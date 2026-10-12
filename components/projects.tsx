@@ -66,16 +66,18 @@ export function Projects() {
               </div>
               <ul className="flex flex-wrap gap-x-6 gap-y-2">
                 <li>
-                  <a href={liveUrl} className={link}>
+                  <a href={liveUrl} target="_blank" className={link}>
                     <IconExternalLink aria-hidden="true" size={16} />
-                    {site.projects.liveLabel}
+                    {site.projects.liveLabel}{" "}
+                    <span className="sr-only">{site.newTabHint}</span>
                   </a>
                 </li>
                 {repoUrl && (
                   <li>
-                    <a href={repoUrl} className={link}>
+                    <a href={repoUrl} target="_blank" className={link}>
                       <IconBrandGithub aria-hidden="true" size={16} />
-                      {site.projects.repoLabel}
+                      {site.projects.repoLabel}{" "}
+                      <span className="sr-only">{site.newTabHint}</span>
                     </a>
                   </li>
                 )}

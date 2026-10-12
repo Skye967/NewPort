@@ -42,7 +42,8 @@ export type Site = {
   };
   nav: { id: SectionId; label: string }[];
   navLabel: string;
-  resume: { label: string; href: string; newTabHint: string };
+  resume: { label: string; href: string };
+  newTabHint: string;
   menuLabel: string;
   socialLabel: string;
   email: string;
@@ -101,8 +102,8 @@ export const site: Site = {
   resume: {
     label: "Resume",
     href: "/skye-grossman-resume.pdf",
-    newTabHint: "(opens in a new tab)",
   },
+  newTabHint: "(opens in a new tab)",
   menuLabel: "Menu",
   socialLabel: "Social",
   email: "skye.grossman@gmail.com",

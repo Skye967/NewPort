@@ -37,7 +37,7 @@ export function Nav() {
             <li>
               <a href={site.resume.href} target="_blank" className={link}>
                 {site.resume.label}{" "}
-                <span className="sr-only">{site.resume.newTabHint}</span>
+                <span className="sr-only">{site.newTabHint}</span>
               </a>
             </li>
           </ul>
