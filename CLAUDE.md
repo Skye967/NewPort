@@ -15,12 +15,6 @@ Planning and process live **outside** the repo, in the parent directory:
 | `../TASKS.md`     | Build plan — task order, branch names, and the current base branch |
 | `../DECISIONS.md` | Why the project is built this way                                  |
 
-## Status
-
-**Rebuild in progress.** `main` still holds the 2024 site (Next 14, npm). New work
-merges into a `rebuild` integration branch, not `main`; `../TASKS.md` names the current
-base. Everything below describes the target, not what is on `main` today.
-
 ## Stack
 
 @AGENTS.md
