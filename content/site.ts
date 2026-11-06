@@ -71,7 +71,7 @@ export const site: Site = {
     greeting: "Hello, I'm",
     closing:
       "If you have any questions or just want to chat, feel free to get in touch. Mahalo!",
-    skillsHeading: "Skills",
+    skillsHeading: "Technology",
   },
   projects: {
     heading: "Projects",

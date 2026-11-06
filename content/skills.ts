@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import claude from "@/public/icons/claude.svg";
 import css from "@/public/icons/css.svg";
 import docker from "@/public/icons/docker.svg";
 import figma from "@/public/icons/figma.svg";
@@ -18,23 +19,45 @@ import tailwind from "@/public/icons/tailwindcss.svg";
 import typescript from "@/public/icons/typescript.svg";
 
 export type Skill = { name: string; icon: StaticImageData };
+export type SkillGroup = { name: string; skills: Skill[] };
 
-export const skills: Skill[] = [
-  { name: "TypeScript", icon: typescript },
-  { name: "JavaScript", icon: javascript },
-  { name: "Python", icon: python },
-  { name: "Go", icon: go },
-  { name: "HTML", icon: html },
-  { name: "CSS", icon: css },
-  { name: "React.js", icon: react },
-  { name: "Next.js", icon: nextjs },
-  { name: "Node.js", icon: nodejs },
-  { name: "Tailwind", icon: tailwind },
-  { name: "LangChain", icon: langchain },
-  { name: "PostgreSQL", icon: postgresql },
-  { name: "Docker", icon: docker },
-  { name: "Git", icon: git },
-  { name: "GitHub", icon: github },
-  { name: "Postman", icon: postman },
-  { name: "Figma", icon: figma },
+export const skillGroups: SkillGroup[] = [
+  {
+    name: "Frontend",
+    skills: [
+      { name: "TypeScript", icon: typescript },
+      { name: "JavaScript", icon: javascript },
+      { name: "React.js", icon: react },
+      { name: "Next.js", icon: nextjs },
+      { name: "HTML", icon: html },
+      { name: "CSS", icon: css },
+      { name: "Tailwind", icon: tailwind },
+    ],
+  },
+  {
+    name: "Backend",
+    skills: [
+      { name: "Go", icon: go },
+      { name: "Python", icon: python },
+      { name: "Node.js", icon: nodejs },
+      { name: "PostgreSQL", icon: postgresql },
+    ],
+  },
+  {
+    name: "AI",
+    skills: [
+      { name: "Claude", icon: claude },
+      { name: "LangChain", icon: langchain },
+    ],
+  },
+  {
+    name: "Tools",
+    skills: [
+      { name: "Docker", icon: docker },
+      { name: "Git", icon: git },
+      { name: "GitHub", icon: github },
+      { name: "Postman", icon: postman },
+      { name: "Figma", icon: figma },
+    ],
+  },
 ];

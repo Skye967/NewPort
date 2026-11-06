@@ -17,6 +17,47 @@
   }
 }
 
+/* inline: these read variables set on the element, which don't exist at the
+   :root @theme would otherwise resolve them on. */
+@theme inline {
+  --animate-cursor-step: cursor-on var(--cursor-ms) linear var(--type-delay);
+  --animate-cursor-blink: cursor-blink 1s step-end var(--type-delay) 5;
+}
+
+@keyframes cursor-on {
+  from,
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cursor-blink {
+  from {
+    opacity: 1;
+  }
+  50%,
+  to {
+    opacity: 0;
+  }
+}
+
+/* AboutSection sets data-reveal on .reveal elements as they scroll in. The
+   transition is only on "shown", so hiding is instant. Screen only, so print
+   never comes out with hidden content. */
+@utility reveal {
+  &[data-reveal="shown"] {
+    transition:
+      opacity 600ms ease-out var(--reveal-delay, 0ms),
+      translate 600ms ease-out var(--reveal-delay, 0ms);
+  }
+  @media screen {
+    &[data-reveal="pending"] {
+      opacity: 0;
+      translate: 0 1.5rem;
+    }
+  }
+}
+
 /* SideTab is fixed over the right edge. The max-w-5xl column clears it once
    its margin plus 1rem covers --spacing-side-tab-gutter: 68rem, plus room for a
    classic scrollbar, which media width includes. Screen only: SideTab is

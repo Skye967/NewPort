@@ -1,75 +1,136 @@
-import { Yatra_One } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { AboutSection } from "@/components/about-section";
 import { bio } from "@/content/bio";
 import { site, type SectionId } from "@/content/site";
-import { skills } from "@/content/skills";
+import { skillGroups } from "@/content/skills";
 import background from "@/public/about-background.webp";
 
-// Not preloaded, same as Caveat in the hero: a preload would be fetched ahead
+// Not preloaded, same as the hero's font: a preload would be fetched ahead
 // of the hero photo, which is the LCP element. Exposed as a variable and only
 // referenced once About has loaded; see AboutSection.
-const yatraOne = Yatra_One({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: "400",
+  weight: "600",
   preload: false,
-  variable: "--font-yatra",
+  variable: "--font-heading",
 });
-const yatra = "group-data-loaded/about:font-(family-name:--font-yatra)";
+const heading =
+  "font-semibold group-data-loaded/about:font-(family-name:--font-heading)";
 
 const hexagon =
   "[clip-path:polygon(50%_0,100%_25%,100%_75%,50%_100%,0_75%,0_25%)]";
 
-// The highlight goes on an inline span with box-decoration-clone so each
-// wrapped line gets its own box; a background on the block would be one
-// rectangle.
-const bioLine = "mt-2.5 indent-10 text-[15px] leading-[34px]";
+const bioLine = "reveal mt-2.5 indent-10 text-[15px] leading-[34px]";
 
-function SkillGrid() {
-  // Eight 37px half-columns, each tile spanning two. Every seventh tile from
-  // the first starts one half-column in, so auto-placement wraps 3-4-3-4-3
-  // with the short rows offset by half a tile. Tiles are 76x88 (regular
-  // hexagon) so a 60° turn maps each one onto itself.
-  // The grid is 310px wide, so with About's px-page padding below sm it only
-  // fits between the page edge and SideTab from 358px. Below 360px it is
-  // zoomed to 85%, which fits down to about 312px; the accepted cost is
-  // 8.5px labels there.
+function hexagonPoints(x: number, y: number) {
+  return [
+    [x + 38, y],
+    [x + 76, y + 22],
+    [x + 76, y + 66],
+    [x + 38, y + 88],
+    [x, y + 66],
+    [x, y + 22],
+  ].join(" ");
+}
+
+function Lattice() {
   return (
-    <ul className="grid grid-cols-[repeat(8,37px)] justify-center gap-x-0.5 pb-5 max-[360px]:zoom-85 [&>li:nth-child(7n+1)]:col-start-2">
-      {skills.map(({ name, icon }) => (
-        // The li is the hover target and never moves; only the hexagon inside
-        // turns, so the pointer can't drop off a corner mid-turn and flicker.
-        // Rows overlap, so near a corner the later tile's box takes the hover.
-        // [&:hover] rather than hover: — Tailwind's hover: only applies under
-        // (hover: hover), which rules out touch. cursor-pointer, on coarse
-        // pointers only, is what makes iOS Safari apply :hover on tap to a
-        // non-interactive element.
-        // The turning hexagon is raised over its neighbours and stays raised
-        // for the 700ms it takes to turn back; it is raised rather than the li
-        // so the raised layer is clipped to the hexagon and the overlap band
-        // keeps going to the later tile. z-0, not auto, so the change can be
-        // delayed at all.
+    <svg
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-20 size-full mask-[radial-gradient(circle_900px_at_50%_65%,black,transparent)]"
+    >
+      <defs>
+        <pattern
+          id="about-lattice"
+          width={78}
+          height={136}
+          patternUnits="userSpaceOnUse"
+        >
+          {[
+            [1, 0],
+            [-38, 68],
+            [40, 68],
+            [-38, -68],
+            [40, -68],
+          ].map(([x, y]) => (
+            <polygon
+              key={`${x},${y}`}
+              points={hexagonPoints(x, y)}
+              className="fill-white/3 stroke-white/15"
+            />
+          ))}
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#about-lattice)" />
+    </svg>
+  );
+}
+
+// One entry per skillGroups entry, in order: a zigzag down the page, then two
+// staggered pairs from sm, then one staggered row. The negative margins are
+// what make the hexagons nest and overlap; each depends on the hexagon height
+// in TechStacks and the 90px drop. The delay only applies where they share a row. Below 22rem the zigzag is too narrow for a
+// hexagon's tip to clear the labels above it, so they barely touch.
+const stagger = [
+  "justify-self-start",
+  "-mt-1 min-[22rem]:-mt-6 justify-self-end sm:mt-[90px] sm:justify-self-auto min-[70rem]:[--reveal-delay:100ms]",
+  "-mt-1 min-[22rem]:-mt-6 justify-self-start sm:-mt-[120px] sm:justify-self-auto min-[70rem]:mt-0 min-[70rem]:[--reveal-delay:200ms]",
+  "-mt-1 min-[22rem]:-mt-6 justify-self-end sm:-mt-[30px] sm:justify-self-auto min-[70rem]:mt-[90px] min-[70rem]:[--reveal-delay:300ms]",
+];
+
+function TechStacks() {
+  // Hover turns a tile light so the near-black logos stay visible in their
+  // brand colour. The hover target is the hexagon, since clip-path also clips
+  // hit testing, and the overlaps would otherwise go to the later tile; for the
+  // same reason the unclipped li takes no pointer events.
+  // [&:hover] rather than hover: — Tailwind's hover: only applies under
+  // (hover: hover), which rules out touch. cursor-pointer, on coarse pointers
+  // only, is what makes iOS Safari apply :hover on tap to a non-interactive
+  // element.
+  return (
+    <ul className="group/stacks mx-auto grid max-w-76 grid-cols-1 sm:max-w-none sm:grid-cols-[repeat(2,248px)] sm:justify-center min-[70rem]:grid-cols-[repeat(4,248px)]">
+      {skillGroups.map(({ name, skills }, i) => (
         <li
           key={name}
-          className="group col-span-2 -mb-5 h-[88px] w-[76px] pointer-coarse:cursor-pointer"
+          className={`${stagger[i]} pointer-events-none relative group-has-[[data-tile]:hover]/stacks:opacity-60 has-[[data-tile]:hover]:z-10 has-[[data-tile]:hover]:opacity-100! motion-safe:transition-opacity motion-safe:duration-300 sm:-mx-1.5`}
         >
-          <div
-            className={`${hexagon} relative z-0 size-full bg-neutral-500 p-px group-[&:hover]:z-1 motion-safe:transition-[rotate,z-index] motion-safe:delay-[0s,700ms] motion-safe:duration-[700ms,0s] motion-safe:group-[&:hover]:rotate-60 motion-safe:group-[&:hover]:delay-0`}
-          >
+          <div className="reveal">
             <div
-              className={`${hexagon} flex size-full flex-col items-center justify-center gap-1 bg-linear-to-b from-white to-neutral-400`}
+              data-tile
+              className={`${hexagon} group pointer-events-auto h-65 w-56 bg-white/35 p-px motion-safe:transition-[scale,background-color] motion-safe:duration-300 sm:h-75 sm:w-65 pointer-coarse:cursor-pointer [&:hover]:bg-[red] motion-safe:[&:hover]:scale-105`}
             >
-              <span className="size-7">
-                <Image
-                  src={icon}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="hidden group-data-loaded/about:block"
-                />
-              </span>
-              <span className="text-[10px] text-neutral-700">{name}</span>
+              <div
+                className={`${hexagon} flex size-full flex-col items-center justify-center gap-2 bg-linear-to-b from-neutral-700 to-neutral-900 px-3 group-[&:hover]:from-white group-[&:hover]:to-neutral-300 motion-safe:transition-colors motion-safe:duration-300`}
+              >
+                <h4
+                  className={`${heading} text-xl text-white group-[&:hover]:text-neutral-900`}
+                >
+                  {name}
+                </h4>
+                <ul className="flex flex-wrap justify-center gap-y-1.5">
+                  {skills.map((skill) => (
+                    <li
+                      key={skill.name}
+                      className="flex w-15 flex-col items-center gap-1"
+                    >
+                      <span className="size-6">
+                        <Image
+                          src={skill.icon}
+                          alt=""
+                          width={24}
+                          height={24}
+                          className="hidden brightness-0 invert group-data-loaded/about:block group-[&:hover]:filter-none"
+                        />
+                      </span>
+                      <span className="text-[11px] text-white group-[&:hover]:text-neutral-800">
+                        {skill.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </li>
@@ -84,75 +145,58 @@ export function About() {
 
   return (
     // Below sm, px-page's asymmetric padding centres the column 1rem left of
-    // the viewport's centre; centred on the viewport, SkillGrid would only
-    // clear SideTab from 390px.
+    // the viewport's centre, which keeps TechStacks clear of SideTab.
     <AboutSection
       id={id}
-      className={`${yatraOne.variable} group/about relative bg-white/80 px-page pt-16 pb-12 sm:px-side-tab-gutter`}
+      className={`${jetBrainsMono.variable} group/about relative isolate overflow-clip px-page pt-16 pb-12 sm:px-side-tab-gutter`}
     >
+      <Lattice />
       {/* A flat fill of the image's average colour stands in until load.
-          Unpinned, it is drawn at least 896px wide, half the source, for
-          high-density screens. Pinned only for a fine primary pointer, since
-          iOS and iPadOS Safari ignore background-attachment: fixed; there it
-          covers the viewport, roughly 1x because the source is no larger. */}
+          Sized so its hexagons come out near Lattice's, and repeats; the source
+          is cross-faded at its edges so the joins don't show. Pinned only for a
+          fine primary pointer, since iOS and iPadOS Safari ignore
+          background-attachment: fixed. */}
       <div
         aria-hidden="true"
         style={
           { "--about-background": `url(${background.src})` } as CSSProperties
         }
-        className="absolute inset-0 -z-10 bg-[#b5b5ab] bg-size-[max(896px,100%)_auto] bg-top group-data-loaded/about:bg-(image:--about-background) pointer-fine:bg-cover pointer-fine:bg-fixed"
+        className="absolute inset-0 -z-30 bg-[#b5b5ab] bg-size-[1080px_auto] bg-top opacity-7 group-data-loaded/about:bg-(image:--about-background) pointer-fine:bg-fixed"
       />
-      {/* The white glow out of the hero: solid white from the top of the
-          hero's V-shaped clip down to the seam, so the hero's edge meets plain
-          white, then fading into the background over 4rem, which pt-16 keeps
-          the heading clear of. Its top part is hidden beneath the hero only
-          while this section is not a stacking context, so its -z-10 resolves
-          in the root context, and no ancestor that isn't one paints a
-          background: body's black reaches the canvas only because <html> has
-          none. */}
+      {/* Fades the background and Lattice to black at both seams, over the
+          4rem that pt-16 and pb-12 mostly keep the content clear of. */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-hero-notch -z-10 h-[calc(var(--spacing-hero-notch)+4rem)] bg-[linear-gradient(white_var(--spacing-hero-notch),transparent)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(black,transparent_4rem,transparent_calc(100%-4rem),black)]"
       />
       <div className="mx-auto flex max-w-5xl flex-col items-center">
         <h2
-          className={`${yatra} mb-5 text-5xl text-white [-webkit-text-stroke:2px_black] text-shadow-[3px_3px_1px_black]`}
+          className={`${heading} mb-5 reveal text-5xl tracking-tight text-white`}
         >
           {site.about.heading}
         </h2>
-        <p
-          className={`${yatra} mb-5 w-3/4 bg-red-600 p-2.5 text-center text-xl`}
-        >
+        <p className={`${heading} mb-5 reveal text-center text-xl`}>
           {site.about.tagline}
         </p>
-        <div className="flex w-full flex-col gap-10 min-[900px]:flex-row-reverse">
-          <div className="flex-1">
-            <p className="mb-5 text-center text-xl font-bold text-[#4d4d4d]">
-              {site.about.greeting}{" "}
-              <span className="text-red-700">{first[0]}</span>
-              {first.slice(1)} <span className="text-red-700">{last}</span>
+        <div className="w-full max-w-2xl">
+          <p className="mb-5 reveal text-center text-xl font-bold text-white">
+            {site.about.greeting} <span className="text-[red]">{first[0]}</span>
+            {first.slice(1)} <span className="text-[red]">{last}</span>
+          </p>
+          {bio.map((paragraph, i) => (
+            <p key={i} className={bioLine}>
+              {paragraph}
             </p>
-            {bio.map((paragraph, i) => (
-              <p key={i} className={bioLine}>
-                <span className="bg-black/60 box-decoration-clone px-1.5 py-1">
-                  {paragraph}
-                </span>
-              </p>
-            ))}
-            <p className={bioLine}>
-              <span className="bg-[rgb(206_2_2/0.85)] box-decoration-clone px-2.5 py-1">
-                {site.about.closing}
-              </span>
-            </p>
-          </div>
-          <div>
-            <h3
-              className={`${yatra} mb-5 text-center text-[40px] text-[#3883fc] [-webkit-text-stroke:2px_black] text-shadow-[1px_1px_1px_black]`}
-            >
-              {site.about.skillsHeading}
-            </h3>
-            <SkillGrid />
-          </div>
+          ))}
+          <p className={bioLine}>{site.about.closing}</p>
+        </div>
+        <div className="mt-12 w-full">
+          <h3
+            className={`${heading} mb-8 reveal text-center text-[40px] text-white`}
+          >
+            {site.about.skillsHeading}
+          </h3>
+          <TechStacks />
         </div>
       </div>
     </AboutSection>
