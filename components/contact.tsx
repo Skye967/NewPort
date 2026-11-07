@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { site, type SectionId } from "@/content/site";
 import background from "@/public/contact-background.webp";
+import { eyebrow } from "@/components/eyebrow";
 
 export function Contact() {
   const id: SectionId = "contact";
@@ -30,9 +31,7 @@ export function Contact() {
           above, which cut into the middle of the top edge and the corners of
           the bottom one. */}
       <div className="mx-auto max-w-5xl px-page py-24">
-        <h2 className="flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
-          {site.contact.heading}
-        </h2>
+        <h2 className={eyebrow}>{site.contact.heading}</h2>
         <div className="mt-8">
           <ContactForm copy={site.contact} email={site.email} />
         </div>

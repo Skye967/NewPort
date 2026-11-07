@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { RevealSection } from "@/components/reveal-section";
 import { projects } from "@/content/projects";
 import { site, type SectionId } from "@/content/site";
+import { eyebrow } from "@/components/eyebrow";
 
 const link =
   "inline-flex items-center gap-1.5 text-white/70 hover:text-white hover:underline";
@@ -13,9 +14,7 @@ export function Projects() {
 
   return (
     <RevealSection id={id} className="mx-auto w-full max-w-5xl px-page py-16">
-      <h2 className="flex reveal items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
-        {site.projects.heading}
-      </h2>
+      <h2 className={`${eyebrow} reveal`}>{site.projects.heading}</h2>
       {projects.map(
         ({
           name,
