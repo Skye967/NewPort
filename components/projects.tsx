@@ -1,6 +1,7 @@
 import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
 import { Fragment } from "react";
+import { RevealSection } from "@/components/reveal-section";
 import { projects } from "@/content/projects";
 import { site, type SectionId } from "@/content/site";
 
@@ -11,8 +12,8 @@ export function Projects() {
   const id: SectionId = "projects";
 
   return (
-    <section id={id} className="mx-auto w-full max-w-5xl px-page py-16">
-      <h2 className="flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
+    <RevealSection id={id} className="mx-auto w-full max-w-5xl px-page py-16">
+      <h2 className="flex reveal items-center gap-3 text-sm font-semibold tracking-[0.2em] text-[red] uppercase before:h-px before:w-8 before:bg-[red]">
         {site.projects.heading}
       </h2>
       {projects.map(
@@ -30,17 +31,17 @@ export function Projects() {
             className="mt-8 grid items-center gap-4 sm:grid-cols-2"
           >
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h3 className="reveal text-3xl font-bold tracking-tight sm:text-4xl">
                 {name}
               </h3>
-              <p className="text-white/80">{description}</p>
-              <p className="text-white/80">
+              <p className="reveal text-white/80">{description}</p>
+              <p className="reveal text-white/80">
                 <span className="font-semibold text-[red]">
                   {site.projects.nextStepLabel}
                 </span>{" "}
                 {nextStep}
               </p>
-              <div>
+              <div className="reveal">
                 <h4 className="mb-2 text-xs font-semibold tracking-[0.2em] text-white/50 uppercase">
                   {site.projects.stackLabel}
                 </h4>
@@ -64,7 +65,7 @@ export function Projects() {
                   ))}
                 </dl>
               </div>
-              <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              <ul className="flex reveal flex-wrap gap-x-6 gap-y-2">
                 <li>
                   <a href={liveUrl} target="_blank" className={link}>
                     <IconExternalLink aria-hidden="true" size={16} />
@@ -85,19 +86,22 @@ export function Projects() {
             </div>
             {/* sizes follows from the section's max-w-5xl and px-page, whose
                 right padding is --spacing-side-tab-gutter below 70rem, and
-                the article's gap-4 and sm:grid-cols-2. */}
+                the article's gap-4 and sm:grid-cols-2.
+
+                The text column is the article's first child, so even children
+                sit in the right column and reveal just after the left. */}
             {screenshots.map(({ src, alt }) => (
               <Image
                 key={src.src}
                 src={src}
                 alt={alt}
                 sizes="(min-width: 70rem) 488px, (min-width: 1024px) 472px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 64px)"
-                className="rounded-lg border border-white/10"
+                className="reveal rounded-lg border border-white/10 sm:even:[--reveal-delay:150ms]"
               />
             ))}
           </article>
         ),
       )}
-    </section>
+    </RevealSection>
   );
 }

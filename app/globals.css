@@ -41,7 +41,7 @@
   }
 }
 
-/* AboutSection sets data-reveal on .reveal elements as they scroll in. The
+/* RevealSection sets data-reveal on .reveal elements as they scroll in. The
    transition is only on "shown", so hiding is instant. Screen only, so print
    never comes out with hidden content. */
 @utility reveal {
