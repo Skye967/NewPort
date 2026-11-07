@@ -12,8 +12,9 @@ import background from "@/public/page-background.webp";
 // cost: reloading with the scroll restored below the hero makes the late image
 // the page's LCP.
 //
-// The red headings in Projects and Contact sit directly on this, and drop
-// below 4.5:1 on the image's lightest tiles past about 8% opacity.
+// The red headings in Core Strengths, Projects and Contact sit directly on
+// this, and drop below 4.5:1 on the image's lightest tiles past about 8%
+// opacity.
 export function PageBackground() {
   const loaded = useWindowLoaded();
 

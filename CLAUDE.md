@@ -31,12 +31,12 @@ Tailwind 4 is configured in CSS (`@theme` in `app/globals.css`); there is no
 ## Content
 
 All copy and project data live in `content/` as typed TypeScript: `projects.ts`,
-`skills.ts`, `bio.ts`, and `site.ts` for site-wide copy (name, title line, nav labels,
-contact and social links). Adding a project is one object in one file; components
+`skills.ts`, `strengths.ts`, `bio.ts`, and `site.ts` for site-wide copy (name, title
+line, nav labels, contact and social links). Adding a project is one object in one file; components
 render whatever is there. Don't put copy in JSX.
 
-The bio, project descriptions, and skills list are Skye's to write. Until one is
-supplied, its field holds an obvious placeholder — don't draft it or port the 2024
+The bio, project descriptions, strengths, and skills list are Skye's to write. Until
+one is supplied, its field holds an obvious placeholder — don't draft it or port the 2024
 site's. Once it's in, don't edit or formalize it.
 
 ## Assets

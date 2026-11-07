@@ -1,7 +1,8 @@
 import type { StaticImageData } from "next/image";
 import heroPhoto from "@/public/hero.webp";
 
-export type SectionId = "about" | "projects" | "contact";
+export type SectionId =
+  "about" | "strengths" | "projects" | "technology" | "contact";
 export type SocialId = "linkedin" | "github";
 
 export type Site = {
@@ -17,7 +18,13 @@ export type Site = {
     tagline: string;
     greeting: string;
     closing: string;
-    skillsHeading: string;
+  };
+  strengths: {
+    heading: string;
+    tagline: string;
+    intro: string;
+    processHeading: string;
+    traitsHeading: string;
   };
   projects: {
     heading: string;
@@ -25,6 +32,9 @@ export type Site = {
     stackLabel: string;
     liveLabel: string;
     repoLabel: string;
+  };
+  technology: {
+    heading: string;
   };
   contact: {
     heading: string;
@@ -71,7 +81,13 @@ export const site: Site = {
     greeting: "Hello, I'm",
     closing:
       "If you have any questions or just want to chat, feel free to get in touch. Mahalo!",
-    skillsHeading: "Technology",
+  },
+  strengths: {
+    heading: "Core Strengths",
+    tagline: "What I bring to the table",
+    intro: "Skills I bring to my approach to every project.",
+    processHeading: "A Process That Delivers",
+    traitsHeading: "How I Work",
   },
   projects: {
     heading: "Projects",
@@ -79,6 +95,9 @@ export const site: Site = {
     stackLabel: "Stack",
     liveLabel: "Live site",
     repoLabel: "Source code",
+  },
+  technology: {
+    heading: "Technology",
   },
   contact: {
     heading: "Contact",

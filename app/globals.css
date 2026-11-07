@@ -22,6 +22,63 @@
 @theme inline {
   --animate-cursor-step: cursor-on var(--cursor-ms) linear var(--type-delay);
   --animate-cursor-blink: cursor-blink 1s step-end var(--type-delay) 5;
+
+  /* ProcessLine sets --step and --spark per step. */
+  --animate-step-draw: step-draw 400ms ease-in-out var(--step) both;
+  --animate-step-pop: step-pop 500ms ease-out var(--step) both;
+  --animate-step-ping: step-ping 800ms ease-out var(--step) both;
+  --animate-spark-x: spark-x 4.8s linear var(--spark) infinite;
+  --animate-spark-y: spark-y 4.8s linear var(--spark) infinite;
+}
+
+@keyframes step-draw {
+  from {
+    scale: 0;
+  }
+}
+
+@keyframes step-pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+  60% {
+    scale: 1.1;
+  }
+}
+
+@keyframes step-ping {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    scale: 2;
+  }
+}
+
+/* The spark is a quarter of its segment, so -100% to 400% carries it from just
+   before the segment to just past it. It crosses in the first 12.5% of the
+   cycle, 600ms, and waits out the rest; ProcessLine offsets each segment's
+   --spark by that 600ms so the crossings chain. */
+@keyframes spark-x {
+  from {
+    translate: -100% 0;
+  }
+  12.5%,
+  to {
+    translate: 400% 0;
+  }
+}
+
+@keyframes spark-y {
+  from {
+    translate: 0 -100%;
+  }
+  12.5%,
+  to {
+    translate: 0 400%;
+  }
 }
 
 @keyframes cursor-on {
