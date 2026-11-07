@@ -1,11 +1,9 @@
 import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import { AboutSection } from "@/components/about-section";
 import { bio } from "@/content/bio";
 import { site, type SectionId } from "@/content/site";
 import { skillGroups } from "@/content/skills";
-import background from "@/public/about-background.webp";
 
 // Not preloaded, same as the hero's font: a preload would be fetched ahead
 // of the hero photo, which is the LCP element. Exposed as a variable and only
@@ -39,7 +37,7 @@ function Lattice() {
   return (
     <svg
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-20 size-full mask-[radial-gradient(circle_900px_at_50%_65%,black,transparent)]"
+      className="pointer-events-none absolute inset-0 -z-10 size-full mask-[radial-gradient(circle_900px_at_50%_65%,black,transparent),linear-gradient(transparent,black_4rem,black_calc(100%-4rem),transparent)] [mask-composite:intersect]"
     >
       <defs>
         <pattern
@@ -151,24 +149,6 @@ export function About() {
       className={`${jetBrainsMono.variable} group/about relative isolate overflow-clip px-page pt-16 pb-12 sm:px-side-tab-gutter`}
     >
       <Lattice />
-      {/* A flat fill of the image's average colour stands in until load.
-          Sized so its hexagons come out near Lattice's, and repeats; the source
-          is cross-faded at its edges so the joins don't show. Pinned only for a
-          fine primary pointer, since iOS and iPadOS Safari ignore
-          background-attachment: fixed. */}
-      <div
-        aria-hidden="true"
-        style={
-          { "--about-background": `url(${background.src})` } as CSSProperties
-        }
-        className="absolute inset-0 -z-30 bg-[#b5b5ab] bg-size-[1080px_auto] bg-top opacity-7 group-data-loaded/about:bg-(image:--about-background) pointer-fine:bg-fixed"
-      />
-      {/* Fades the background and Lattice to black at both seams, over the
-          4rem that pt-16 and pb-12 mostly keep the content clear of. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(black,transparent_4rem,transparent_calc(100%-4rem),black)]"
-      />
       <div className="mx-auto flex max-w-5xl flex-col items-center">
         <h2
           className={`${heading} mb-5 reveal text-5xl tracking-tight text-white`}

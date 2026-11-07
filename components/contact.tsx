@@ -17,8 +17,8 @@ export function Contact() {
           The heading's red needs near-black for 4.5:1, so the image is masked
           out around its line, 6rem to 7.25rem (py-24 plus text-sm's 1.25rem).
           It stays shown down to 3rem so the clip-path's top notch still shows
-          against the black behind. Move the stops if py-24 or the heading's
-          text-sm changes. */}
+          against the near-black PageBackground. Move the stops if py-24 or the
+          heading's text-sm changes. */}
       <Image
         src={background}
         alt=""
