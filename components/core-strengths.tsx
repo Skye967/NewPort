@@ -23,7 +23,7 @@ import {
   type StrengthId,
   type TraitId,
 } from "@/content/strengths";
-import { eyebrow } from "@/components/eyebrow";
+import { eyebrow, intro, tagline } from "@/components/eyebrow";
 
 const strengthIcons: Record<StrengthId, Icon> = {
   "full-stack": IconStack2,
@@ -45,8 +45,6 @@ const traitIcons: Record<TraitId, Icon> = {
 };
 
 const subheading = "mt-16 reveal text-2xl font-bold tracking-tight sm:text-3xl";
-const intro =
-  "mt-3 w-fit reveal bg-linear-to-r from-[#b5b5ab] to-[red] bg-clip-text text-lg text-transparent";
 
 // The three groups get lighter from top to bottom: raised cards, a line of
 // steps, then open columns under a rule. Red marks the same things in each:
@@ -57,9 +55,7 @@ export function CoreStrengths() {
   return (
     <RevealSection id={id} className="mx-auto w-full max-w-5xl px-page py-16">
       <h2 className={`${eyebrow} reveal`}>{site.strengths.heading}</h2>
-      <p className="mt-4 reveal text-3xl font-bold tracking-tight sm:text-4xl">
-        {site.strengths.tagline}
-      </p>
+      <p className={tagline}>{site.strengths.tagline}</p>
       <p className={intro}>{site.strengths.intro}</p>
       <StrengthCards />
       <h3 className={subheading}>{site.strengths.processHeading}</h3>

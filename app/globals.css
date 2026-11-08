@@ -29,6 +29,59 @@
   --animate-step-ping: step-ping 800ms ease-out var(--step) both;
   --animate-spark-x: spark-x 4.8s linear var(--spark) infinite;
   --animate-spark-y: spark-y 4.8s linear var(--spark) infinite;
+
+  /* Technology's tile reveal, timed from the tile's --reveal-delay: the
+     outline draws, the tile fills in behind it, then each logo pops in --j
+     apart. hex-draw's 0.4 is the share of its run spent drawing; hex-fill
+     starts once the outline is about two thirds round. */
+  --animate-hex-draw: hex-draw 1200ms ease-in-out var(--reveal-delay, 0ms) both;
+  --animate-hex-fill: hex-fill 500ms ease-out
+    calc(var(--reveal-delay, 0ms) + 350ms) both;
+  --animate-hex-pop: step-pop 500ms ease-out
+    calc(var(--reveal-delay, 0ms) + 600ms + var(--j) * 60ms) both;
+  --animate-lattice-ripple: lattice-ripple 1800ms ease-out 900ms both;
+}
+
+@keyframes hex-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  40% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes hex-fill {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Registered so it interpolates as a length; an unregistered custom property
+   would jump from one keyframe to the next. */
+@property --ripple {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@keyframes lattice-ripple {
+  from {
+    --ripple: 0px;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  to {
+    --ripple: 1200px;
+    opacity: 0;
+  }
 }
 
 @keyframes step-draw {
