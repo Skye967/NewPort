@@ -1,13 +1,12 @@
 import Image from "next/image";
+import { headingFont } from "@/components/heading-font";
+import { NavLink } from "@/components/nav-link";
 import { NavMenu } from "@/components/nav-menu";
 import { site } from "@/content/site";
 import logo from "@/public/logo.webp";
 
-// Only colour changes on the text, and the underline is absolutely
-// positioned, so hovering or focusing never reflows the row. #3883fc rather
-// than plain blue, which falls below 4.5:1 on the nav's black.
 const link =
-  "relative text-white after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-[red] after:opacity-0 hover:text-[#3883fc] hover:after:translate-y-1.5 hover:after:opacity-100 focus-visible:text-[#3883fc] focus-visible:after:translate-y-1.5 focus-visible:after:opacity-100 motion-safe:transition-colors motion-safe:duration-300 motion-safe:after:transition-[opacity,translate] motion-safe:after:duration-300";
+  "text-white/70 hover:text-white focus-visible:text-white motion-safe:transition-colors motion-safe:duration-300";
 
 export function Nav() {
   return (
@@ -25,19 +24,24 @@ export function Nav() {
           />
         </a>
         <NavMenu navLabel={site.navLabel} menuLabel={site.menuLabel}>
-          <ul className="flex flex-col items-center gap-4 py-5 text-sm md:flex-row md:flex-wrap md:justify-end md:gap-y-2 md:py-0">
+          <ul
+            className={`${headingFont.className} flex flex-col items-center gap-4 py-5 text-sm md:flex-row md:flex-wrap md:justify-end md:gap-y-2 md:py-0`}
+          >
             {site.nav.map(({ id, label }) => (
               <li key={id}>
-                <a href={`#${id}`} className={link}>
-                  {label}
-                </a>
+                <NavLink href={`#${id}`} label={label} className={link} />
               </li>
             ))}
             <li>
-              <a href={site.resume.href} target="_blank" className={link}>
-                {site.resume.label}{" "}
+              <NavLink
+                href={site.resume.href}
+                target="_blank"
+                label={site.resume.label}
+                className={link}
+              >
+                {" "}
                 <span className="sr-only">{site.newTabHint}</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </NavMenu>
