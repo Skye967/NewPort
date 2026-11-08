@@ -37,6 +37,8 @@ export type Site = {
   };
   technology: {
     heading: string;
+    tagline: string;
+    intro: string;
   };
   contact: {
     heading: string;
@@ -102,6 +104,8 @@ export const site: Site = {
   },
   technology: {
     heading: "Technology",
+    tagline: "The tools I build with",
+    intro: "Languages, frameworks, and tools I use to ship, front to back.",
   },
   contact: {
     heading: "Contact",
