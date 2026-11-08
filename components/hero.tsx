@@ -7,8 +7,11 @@ import { site } from "@/content/site";
 const charMs = 50;
 const lineGapMs = 300;
 
+// An underscore cursor. The box is the character's content area, whose bottom
+// sits a descent below the baseline, so 0.1em up puts the bar where a typed
+// "_" would land. The shadow matches the title's text-shadow.
 const cursorBox =
-  "after:absolute after:top-0 after:left-full after:h-full after:w-[1ch] after:bg-current after:opacity-0 print:after:hidden";
+  "after:absolute after:bottom-[0.1em] after:left-full after:h-[0.15em] after:w-[1ch] after:bg-current after:opacity-0 after:shadow-[2px_2px_0_black] print:after:hidden";
 
 // The visible glyphs are ::before content in an aria-hidden subtree, so the
 // sr-only copy is the only text: what's read, indexed and found. Accepted
