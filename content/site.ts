@@ -24,7 +24,9 @@ export type Site = {
     tagline: string;
     intro: string;
     processHeading: string;
+    processIntro: string;
     traitsHeading: string;
+    traitsIntro: string;
   };
   projects: {
     heading: string;
@@ -87,7 +89,9 @@ export const site: Site = {
     tagline: "What I bring to the table",
     intro: "Skills I bring to my approach to every project.",
     processHeading: "A Process That Delivers",
+    processIntro: "Ship great software with intent, clarity, and discipline.",
     traitsHeading: "How I Work",
+    traitsIntro: "What you can count on from me, start to finish.",
   },
   projects: {
     heading: "Projects",

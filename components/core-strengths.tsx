@@ -45,6 +45,8 @@ const traitIcons: Record<TraitId, Icon> = {
 };
 
 const subheading = "mt-16 reveal text-2xl font-bold tracking-tight sm:text-3xl";
+const intro =
+  "mt-3 w-fit reveal bg-linear-to-r from-[#b5b5ab] to-[red] bg-clip-text text-lg text-transparent";
 
 // The three groups get lighter from top to bottom: raised cards, a line of
 // steps, then open columns under a rule. Red marks the same things in each:
@@ -58,13 +60,13 @@ export function CoreStrengths() {
       <p className="mt-4 reveal text-3xl font-bold tracking-tight sm:text-4xl">
         {site.strengths.tagline}
       </p>
-      <p className="mt-3 w-fit reveal bg-linear-to-r from-[#b5b5ab] to-[red] bg-clip-text text-lg text-transparent">
-        {site.strengths.intro}
-      </p>
+      <p className={intro}>{site.strengths.intro}</p>
       <StrengthCards />
       <h3 className={subheading}>{site.strengths.processHeading}</h3>
+      <p className={intro}>{site.strengths.processIntro}</p>
       <ProcessLine />
       <h3 className={subheading}>{site.strengths.traitsHeading}</h3>
+      <p className={intro}>{site.strengths.traitsIntro}</p>
       <Traits />
     </RevealSection>
   );
