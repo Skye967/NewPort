@@ -4,8 +4,10 @@ import { useActionState } from "react";
 import { sendMessage, type ContactState, type Fields } from "@/app/actions";
 import type { Site } from "@/content/site";
 
+// A solid fill: Contact's wind lines run behind the form and would show
+// through a translucent one.
 const field =
-  "rounded-md border border-white/15 bg-white/5 px-3 py-2 text-white focus:border-[red] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white read-only:opacity-60";
+  "rounded-md border border-white/15 bg-[#121212] px-3 py-2 text-white focus:border-[red] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white read-only:opacity-60";
 const label = "flex flex-col gap-1.5 text-sm text-white/70";
 
 // Next throws here, rather than in sendMessage, when the action can't run at
