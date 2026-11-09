@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
+import { ContactWind } from "@/components/contact-wind";
 import { site, type SectionId } from "@/content/site";
-import background from "@/public/contact-background.webp";
 import { eyebrow } from "@/components/eyebrow";
 
 export function Contact() {
@@ -12,21 +11,10 @@ export function Contact() {
       id={id}
       className="relative isolate [clip-path:polygon(0_0,50%_3rem,100%_0,100%_calc(100%-3rem),50%_100%,0_calc(100%-3rem))]"
     >
-      {/* Drawn full width from a 1792px source, so below 2x on wide
-          high-density screens; at 30% opacity the softness doesn't show.
-
-          The heading's red needs near-black for 4.5:1, so the image is masked
+      {/* The heading's red needs near-black for 4.5:1, so the lines are masked
           out around its line, 6rem to 7.25rem (py-24 plus text-sm's 1.25rem).
-          It stays shown down to 3rem so the clip-path's top notch still shows
-          against the near-black PageBackground. Move the stops if py-24 or the
-          heading's text-sm changes. */}
-      <Image
-        src={background}
-        alt=""
-        fill
-        sizes="100vw"
-        className="-z-10 mask-[linear-gradient(black_3rem,transparent_5rem,transparent_7.5rem,black_16rem)] object-cover opacity-30"
-      />
+          Move the stops if py-24 or the heading's text-sm changes. */}
+      <ContactWind className="absolute inset-0 -z-10 size-full mask-[linear-gradient(black_3rem,transparent_5rem,transparent_7.5rem,black_16rem)]" />
       {/* py-24 keeps the content clear of the 3rem notches in the clip-path
           above, which cut into the middle of the top edge and the corners of
           the bottom one. */}
