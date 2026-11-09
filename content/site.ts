@@ -16,8 +16,12 @@ export type Site = {
   about: {
     heading: string;
     tagline: string;
-    greeting: string;
-    closing: string;
+    intro: string;
+    prompt: string;
+    facts: string[];
+    // Repeats a line of the first paragraph in content/bio.ts; change both
+    // together.
+    pullQuote: string;
   };
   strengths: {
     heading: string;
@@ -82,9 +86,16 @@ export const site: Site = {
   about: {
     heading: "About Me",
     tagline: "Who I am and what I do",
-    greeting: "Hello, I'm",
-    closing:
-      "If you have any questions or just want to chat, feel free to get in touch. Mahalo!",
+    intro:
+      "I build full-stack web applications, specializing in React, Next.js, TypeScript, PostgreSQL, Python, and Go.",
+    prompt: "whoami",
+    facts: [
+      "Maui, Hawaii native",
+      "Full-stack software developer",
+      "Kitchen-trained, now cooking up code",
+      "Exploring architecture and AI agents",
+    ],
+    pullQuote: "A great chef is always working the next problem.",
   },
   strengths: {
     heading: "Core Strengths",

@@ -10,6 +10,20 @@
   /* Zero length: fill "both" holds opacity 0 until animation-delay, then shows
      the character. */
   --animate-type-in: type-in 0s both;
+
+  /* About's bio rule: it draws down, then the spark crosses it in the first
+     quarter of each 6s cycle, starting once the draw is done. */
+  --animate-rule-draw: step-draw 900ms ease-in-out both;
+  --animate-rule-spark: rule-spark 6s linear 900ms infinite;
+  @keyframes rule-spark {
+    from {
+      translate: 0 -100%;
+    }
+    25%,
+    to {
+      translate: 0 100%;
+    }
+  }
   @keyframes type-in {
     from {
       opacity: 0;
