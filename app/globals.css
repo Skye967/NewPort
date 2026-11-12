@@ -2,7 +2,8 @@
 
 @theme {
   --spacing-header: 3.5rem;
-  --spacing-hero: calc(100svh - var(--spacing-header));
+  /* The nav's corners float over the hero, so the hero fills the viewport. */
+  --spacing-hero: 100svh;
   --spacing-hero-notch: calc(var(--spacing-hero) * 0.15);
   --spacing-side-tab: 2.5rem;
   --spacing-side-tab-gutter: calc(var(--spacing-side-tab) + 0.5rem);
@@ -22,6 +23,21 @@
     25%,
     to {
       translate: 0 100%;
+    }
+  }
+  /* The nav's full-screen menu wipes down, then each link rises into place,
+     --i apart. */
+  --animate-menu-wipe: menu-wipe 550ms cubic-bezier(0.7, 0, 0.2, 1);
+  --animate-menu-rise: menu-rise 600ms cubic-bezier(0.2, 0.8, 0.2, 1)
+    calc(250ms + var(--i, 0) * 90ms) both;
+  @keyframes menu-wipe {
+    from {
+      clip-path: inset(0 0 100% 0);
+    }
+  }
+  @keyframes menu-rise {
+    from {
+      translate: 0 105%;
     }
   }
   @keyframes type-in {
@@ -197,6 +213,12 @@
 
 html {
   scroll-padding-top: calc(var(--spacing-header) + 0.5rem);
+}
+
+/* The nav's full-screen menu is a modal dialog; the page behind it doesn't
+   scroll. */
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {

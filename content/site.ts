@@ -58,11 +58,15 @@ export type Site = {
     invalidMessage: string;
     errorMessage: string;
   };
+  // The monogram in the nav's top-left corner. The hero types the full name,
+  // so the nav doesn't repeat it.
+  mark: string;
   nav: { id: SectionId; label: string }[];
   navLabel: string;
   resume: { label: string; href: string };
   newTabHint: string;
   menuLabel: string;
+  closeMenuLabel: string;
   socialLabel: string;
   email: string;
   emailLabel: string;
@@ -131,6 +135,7 @@ export const site: Site = {
     errorMessage:
       "Your message may not have been sent. You can email me directly instead:",
   },
+  mark: "SG",
   nav: [
     { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
@@ -143,6 +148,7 @@ export const site: Site = {
   },
   newTabHint: "(opens in a new tab)",
   menuLabel: "Menu",
+  closeMenuLabel: "Close menu",
   socialLabel: "Social",
   email: "skye.grossman@gmail.com",
   emailLabel: "Email",
