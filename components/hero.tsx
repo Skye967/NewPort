@@ -65,7 +65,10 @@ function Typed({
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-hero overflow-hidden [clip-path:polygon(100%_0,100%_calc(100%-var(--spacing-hero-notch)),50%_100%,0_calc(100%-var(--spacing-hero-notch)),0_0)]">
+    <section
+      id="top"
+      className="relative isolate min-h-hero overflow-hidden [clip-path:polygon(100%_0,100%_calc(100%-var(--spacing-hero-notch)),50%_100%,0_calc(100%-var(--spacing-hero-notch)),0_0)]"
+    >
       <Image
         src={site.hero.photo.src}
         alt={site.hero.photo.alt}
@@ -77,15 +80,13 @@ export function Hero() {
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <HeroParticles />
       </div>
-      {/* The bottom padding only matters when large text makes the title
+      {/* The top padding clears the nav's corners, which sit over the hero.
+          The bottom padding only matters when large text makes the title
           outgrow the hero: it keeps the text above the V crop. */}
       <div
-        className={`${headingFont.className} pointer-events-none px-page pt-4 pb-hero-notch`}
+        className={`${headingFont.className} pointer-events-none px-page pt-[calc(var(--spacing-header)+1rem)] pb-hero-notch`}
       >
         <h1 className="text-base text-shadow-[2px_2px_0_black] min-[390px]:text-lg sm:text-3xl lg:text-5xl">
-          <span aria-hidden="true" className="mr-[1ch] text-red-500">
-            $
-          </span>
           <Typed text={site.hero.greeting} holdMs={charMs + lineGapMs} />
         </h1>
         <p className="mt-2 text-sm text-red-500 text-shadow-[2px_2px_0_black] min-[390px]:text-base sm:text-xl lg:text-3xl">

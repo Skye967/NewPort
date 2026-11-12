@@ -8,8 +8,7 @@ const link =
 
 // Fixed over the right edge; content keeps clear of it with px-page. Centred
 // on the space below the header, so it clears the header down to a viewport
-// of header + tab height. z-10: under Nav's z-20 header, so the open menu
-// covers it.
+// of header + tab height. z-10: under Nav's z-20 corners.
 export function SideTab() {
   return (
     <nav
